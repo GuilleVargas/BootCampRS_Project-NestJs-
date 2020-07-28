@@ -1,8 +1,9 @@
-export class Profesional{
+/*
+! DICE QUE ES LO QUE SE ESTÁ ENVIADO ENTRE LA APP CLIENTE Y EL SERVIDOR
+*/
 
-    
+export class CreateProfesionalDTO{
 
-    _id: string;
     collegiate_number: number;
     name: string;
     surname: string;
@@ -16,5 +17,4 @@ export class Profesional{
     door: string;
     postal_code: number;
     city: string;
-
 }

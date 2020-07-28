@@ -22,7 +22,7 @@ const routes: Routes = [{
 {
  path: "profesional-list",
  loadChildren: () => import('src/app/components/profesional-list/profesional-list.module').then(m => m.ProfesionalListModule),
- canActivate: [AuthGuard] 
+//  canActivate: [AuthGuard] 
 },
 {
  path: "patient-list",

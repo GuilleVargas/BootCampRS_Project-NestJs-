@@ -1,15 +1,10 @@
-/**
- *  ESTE ARCHIVO SIRVE PARA GUARDAR LOS DATOS DE LOS PROFESIONALES
+/*
+! DEFINIR LOS DATOS QUE VAMOS A GUARDAR DENTRO DE MONGODB
 */
 
-'use strict'
+import { Schema } from 'mongoose';
 
-const mogoose = require('mongoose');
-const mongoose = require('../database');
-const {Schema} = mongoose;
-
-
-var profesionalSchema =  Schema ({
+export const ProfesionalSchema = new Schema({
     collegiate_number : {type: Number, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
@@ -17,12 +12,11 @@ var profesionalSchema =  Schema ({
     gender: {type: String},
     birth_date: {type: String},
     nif: {type: String},
-    type_of_profesional: {type: String},
+    type_of_profesional:{type: String},
     street: {type: String},
     portal_number: {type: Number},
     door: {type: String},
     postal_code: {type: Number},
     city: {type: String}
-});
 
-module.exports = mongoose.model('Profesional', profesionalSchema);
+})

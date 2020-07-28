@@ -1,14 +1,11 @@
-/**
- *  ESTE ARCHIVO SIRVE PARA GUARDAR LOS DATOS DE LOS Pacientes
+
+/*
+! DEFINIR LOS DATOS QUE VAMOS A GUARDAR DENTRO DE MONGODB
 */
 
-'use strict'
+import { Schema } from 'mongoose';
 
-const mogoose = require('mongoose');
-const mongoose = require('../database');
-const {Schema} = mongoose;
-
-var patientSchema =  Schema ({
+export const PatientSchema = new Schema({
     nhc : {type: Number, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
@@ -24,6 +21,5 @@ var patientSchema =  Schema ({
     tarjet_number: {type: Number},
     insurance_name: {type: String},
     type_of_insurance: {type: String} 
-});
 
-module.exports = mongoose.model('Patient', patientSchema);
+})

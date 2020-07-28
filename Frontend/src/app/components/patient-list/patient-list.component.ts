@@ -2,7 +2,6 @@ import { Patient } from './../models/patient';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
 import { PatientService } from '../../services/patient.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
@@ -17,14 +16,23 @@ declare var M: any;
 export class PatientListComponent implements OnInit{
 
 
-  constructor(public patientService: PatientService, private _snackBar: MatSnackBar) { }
+  constructor(public patientService: PatientService) { }
 
   ngOnInit() {
-
+    this.getPatients();
     this.refreshPatientList();
   }
+
+getPatients(){
+  this.patientService.getPatients()
+  .subscribe(
+    res => console.log(res),
+    err=> console.log(err)
+  )
+}
+
   refreshPatientList() {
-    this.patientService.getPatientList().subscribe((res) => {
+    this.patientService.getPatients().subscribe((res) => {
       this.patientService.patients = res as Patient[];
     });
   }

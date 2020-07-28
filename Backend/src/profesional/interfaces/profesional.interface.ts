@@ -1,8 +1,11 @@
-export class Profesional{
+ /*
+! AYUDAR A TS ESCRIBIR EL CÓDIGO
+*/
+import { Document } from 'mongoose';
 
-    
 
-    _id: string;
+export interface Profesional extends Document{
+
     collegiate_number: number;
     name: string;
     surname: string;
@@ -16,5 +19,5 @@ export class Profesional{
     door: string;
     postal_code: number;
     city: string;
-
+    
 }

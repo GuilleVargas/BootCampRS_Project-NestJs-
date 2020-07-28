@@ -2,7 +2,6 @@ import { ProfesionalService } from './../../services/profesional.service';
 import { Profesional } from './../models/profesional';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
@@ -17,7 +16,7 @@ declare var M: any;
 export class ProfesionalListComponent implements OnInit{
 
  
-  constructor(public profesionalService: ProfesionalService, private _snackBar: MatSnackBar) { }
+  constructor(public profesionalService: ProfesionalService) { }
 
   ngOnInit() {
     this.refreshProfesionalList();
@@ -25,7 +24,7 @@ export class ProfesionalListComponent implements OnInit{
 
 
   refreshProfesionalList() {
-    this.profesionalService.getProfesionalList().subscribe((res) => {
+    this.profesionalService.getProfesionals().subscribe((res) => {
       this.profesionalService.profesional = res as Profesional[];
     });
   }

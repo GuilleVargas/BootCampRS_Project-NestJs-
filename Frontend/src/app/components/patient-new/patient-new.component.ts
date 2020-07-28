@@ -68,23 +68,23 @@ export class PatientNewComponent implements OnInit {
   onSubmit(form) {
     console.log(form.value)
     if (!form.value._id) {
-      this.patientService.postPatient(form.value).subscribe((res) => {
+      this.patientService.createPatient(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshPatientList();
         M.toast({ html: 'Saved successfully', classes: 'rounded' });
       });
     }
-    else {
-      this.patientService.putPatient(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshPatientList();
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
-      });
-    }
+    // else {
+    //   this.patientService.updatePatient(form.value).subscribe((res) => {
+    //     this.resetForm(form);
+    //     this.refreshPatientList();
+    //     M.toast({ html: 'Updated successfully', classes: 'rounded' });
+    //   });
+    // }
   }
 
   refreshPatientList() {
-    this.patientService.getPatientList().subscribe((res) => {
+    this.patientService.getPatients().subscribe((res) => {
       this.patientService.patients = res as Patient[];
     });
   }
