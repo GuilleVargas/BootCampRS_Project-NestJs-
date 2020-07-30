@@ -8,7 +8,7 @@ Consta de una aplicación pensada para el sector sanitario con la que se pueden 
 El proyecto ha sido realizado con Angular CLI version 10.0.1 para el Front, MongoDB y Express para el Back.
 
 ## Pre-requisitos 📋
-Para la correcta ejecución del proyecto en local es necesario tener instalado Node.js, el cual se puede obtener desde su página oficial.
+Para la correcta ejecución del proyecto en local es necesario tener instalado Nest.js, el cual se puede obtener desde su página oficial.
 
 Se necesita instalar también MongoDB:
 
@@ -35,7 +35,7 @@ _En mi caso, utilizo este comando ya que en el package.json he modificado el scr
 Y por último, ejecuto la parte del Back entrando en dicha carpeta e introduciendo el comando:
 
 ```
-npm run start
+npm run start:dev
 ```
 
 _Que en mi caso, utilizo este comando ya que en el package.json he modificado el script añadiendo lo siguiente: "start": "nodemon src/index.js"_
