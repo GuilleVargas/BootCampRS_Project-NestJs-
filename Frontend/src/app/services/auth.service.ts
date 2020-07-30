@@ -15,11 +15,11 @@ export class AuthService {
 
   
   signUp(user){
-    return this.http.post<any>(this.URL + '/signup', user);
+    return this.http.post<any>(this.URL + '/users', user);
   }
 
   signIn(user){
-    return this.http.post<any>(this.URL + '/signin', user); 
+    return this.http.post<any>(this.URL + '/auth', user); 
   }
 
   

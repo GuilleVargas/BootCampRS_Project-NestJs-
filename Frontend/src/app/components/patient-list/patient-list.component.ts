@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Patient } from './../models/patient';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
@@ -16,7 +17,7 @@ declare var M: any;
 export class PatientListComponent implements OnInit{
 
 
-  constructor(public patientService: PatientService) { }
+  constructor(public patientService: PatientService, private router: Router) { }
 
   ngOnInit() {
     this.getPatients();
@@ -37,8 +38,10 @@ getPatients(){
     });
   }
 
-   onEdit(pat: Patient) {
+   onEdit( pat: Patient) {
      this.patientService.selectedPatient = pat;
+     console.log(pat);
+     this.router.navigate(['/patient-new']); 
    }
 
   onDelete(_id: string, form: NgForm) {

@@ -13,6 +13,7 @@ export class AuthService {
  async login(loginUserDto: LoginUserDto){
      let result = await this.userService.findByEmail(loginUserDto.email);
      if(!result) throw new NotFoundException();
+     Logger.log("password"+result.password);
      let checkPass = await bcrypt.compare(loginUserDto.password, result.password);
     if(! checkPass) throw new UnauthorizedException();
     

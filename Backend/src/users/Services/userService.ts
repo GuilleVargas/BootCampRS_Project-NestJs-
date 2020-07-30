@@ -16,22 +16,23 @@ export class UserService {
     async registerUser(registerUserDto: RegisterUserDto){
         
         const UserCreated =  new this.userModel(registerUserDto);
-        const session = await UserCreated.db.startSession();
+      //   const session = await UserCreated.db.startSession();
         
-        // try{
-        //     session.startTransaction();
+        try{
+            // session.startTransaction();
              let pass = await bcrypt.hash(registerUserDto.password, 10);
-            let result = await this.userModel.create([{"email":registerUserDto.email,"password": pass}],{session: session})    
-    //         await session.commitTransaction();
-    //     }catch (error){
-    //         Logger.error(error);
-    //         await session.abortTransaction();
-    //         if(error.code === 11000) throw new ConflictException("Usuario duplicado");
-    //        throw new BadGatewayException();
+            let result = await this.userModel.create([{"email":registerUserDto.email,"password": pass}]);    
+            // await session.commitTransaction();
+        }catch (error){
+            Logger.error(error);
+            // await session.abortTransaction();
+            if(error.code === 11000) throw new ConflictException("Usuario duplicado");
+           throw new BadGatewayException();
     //     }finally{
     //        session.endSession();
     //     }
       }
+   }
 
       async findByEmail(email){
          return this.userModel.findOne({email:email});

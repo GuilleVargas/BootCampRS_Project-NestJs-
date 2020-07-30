@@ -18,7 +18,7 @@ constructor( private authService: AuthService){}
         Authorization: `Bearer ${this.authService.getToken()} `
       }
     })
-    return next.handle(tokenizeReq); //
+    return next.handle(tokenizeReq); 
   }
 
 }
