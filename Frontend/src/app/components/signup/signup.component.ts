@@ -15,14 +15,17 @@ export class SignupComponent implements OnInit{
   form: FormGroup;
   show: boolean;
 
+
   constructor(private authservice: AuthService, 
     private router: Router, private _snackBar: MatSnackBar) {
       this.show = false;
     }
 
     openSnackBar() {
-      this._snackBar.open('¡Usuario registrado!', 'OK!', {
-        duration: 2000,
+      this._snackBar.open('¡USUARIO REGISTRADO CORRECTAMENTE!', 'OK!', {
+        duration: 3000,
+        horizontalPosition: 'center',
+      verticalPosition: 'top'
       });
     }
 
