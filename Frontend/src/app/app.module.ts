@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -23,7 +24,6 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ProfesionalListComponent } from './components/profesional-list/profesional-list.component';
 import { PatientListComponent } from './components/patient-list/patient-list.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { PatientNewComponent } from './components/patient-new/patient-new.component';
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {  MatSnackBar} from  '@angular/material/snack-bar' ;
 
 @Component({
   selector: 'app-signup',
@@ -15,8 +16,14 @@ export class SignupComponent implements OnInit{
   show: boolean;
 
   constructor(private authservice: AuthService, 
-    private router: Router) {
+    private router: Router, private _snackBar: MatSnackBar) {
       this.show = false;
+    }
+
+    openSnackBar() {
+      this._snackBar.open('¡Usuario registrado!', 'OK!', {
+        duration: 2000,
+      });
     }
 
     password() {
@@ -42,6 +49,7 @@ export class SignupComponent implements OnInit{
     if(this.form.valid){this.authservice.signUp(usuario) //Hago la petición
     .subscribe( //Respuesta que me va a dar el servidor, me puede dar respuesta o error
     res=> {
+      this.openSnackBar();
       console.log(res)
       localStorage.setItem('token', res['token']);
       this.router.navigate(['/signin']);
