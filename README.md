@@ -40,5 +40,6 @@ npm run start:dev
 
 _Que en mi caso, utilizo este comando ya que en el package.json he modificado el script añadiendo lo siguiente: "start": "nodemon src/index.js"_
 
+![ProyectoRS_NestJs](https://user-images.githubusercontent.com/49915596/89031195-55d3f080-d332-11ea-97ee-05579ac034c4.gif)
 
 Una vez realizado lo anterior ya está listo para ser consultado el proyecto en la dirección http://localhost:4200/, el cual se abrirá de forma automática gracias al "-o" del comando en Front.
